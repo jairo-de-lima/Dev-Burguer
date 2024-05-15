@@ -162,7 +162,7 @@ checkoutBtn.addEventListener("click", function () {
     /*chamar zap*/
     const cartItems = cart.map((item) => {
         return (
-            ` ${item.name} Quantidade: (${item.quantity}) Preço: R${item.price} `
+            ` ${item.name} Quantidade: (${item.quantity}) Preço: R$${item.price.toFixed(2) } `
         )
     }).join("")
     
