@@ -135,10 +135,10 @@ cartItemsContainer.addEventListener("click", function (event) {
 
 addressInput.addEventListener("input", function (event) {
     let inputValue = event.target.value;
-
+    /*comecei a digitar endereco tira os aviso*/
     if (inputValue !== "") {
-        addressInput.classList.remove("border-red-500") // Adiciona parênteses para remover a classe
-        addressWarn.classList.add("hidden")
+        addressInput.style.border = "2px solid";
+        addressWarn.style.display = "none";
     }
 })
 
@@ -151,11 +151,11 @@ checkoutBtn.addEventListener("click", function () {
 
     }
 
-
+    /*finalizar sem endereco sobe aviso*/
     if (cart.length === 0) return;
     if (addressInput.value === "") {
-        addressWarn.classList.remove("hidden")
-        addressInput.classList.add("border-red-500")
+        addressWarn.style.display = "block";
+        addressInput.style.borderColor = "red";
         return;
     }
 
@@ -165,6 +165,7 @@ checkoutBtn.addEventListener("click", function () {
             ` ${item.name} Quantidade: (${item.quantity}) Preço: R${item.price} `
         )
     }).join("")
+    
 
     const message = encodeURIComponent(cartItems)
     const phone = "11940107909"
@@ -180,7 +181,7 @@ checkoutBtn.addEventListener("click", function () {
 function checkRestaurantOpen() {
     const data = new Date();
     const hora = data.getHours();
-    return hora >= 18 && hora < 22; // Correção da expressão de comparação
+    return hora >= 18 && hora < 22; 
 }
 
 const spanItem = document.getElementById("date-span");
